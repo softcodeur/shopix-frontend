@@ -5,6 +5,7 @@ import {User} from "../models/user";
 import {PanierItem} from "../models/panier-item";
 import {Observable} from "rxjs";
 let commande  = JSON.parse(localStorage.getItem("commande")) || [];
+const api_url ="https://shopix-backend.herokuapp.com";
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +25,7 @@ export class CommandeService {
        localStorage.setItem("commande",JSON.stringify(commande));
      }
 
-     return this.http.post(`http://localhost:7600/shopix-api/commandes/email/${user.email}/password/${user.password}`,commande,httpOptions);
+     return this.http.post(`${api_url}/shopix-api/commandes/email/${user.email}/password/${user.password}`,commande,httpOptions);
   };
 
   getCommandeFromLocalStorage(){

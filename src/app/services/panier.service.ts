@@ -5,6 +5,7 @@ import {PanierItem} from "../models/panier-item";
 import {BehaviorSubject, Observable, Subscriber} from "rxjs";
 import {map} from "rxjs/operators";
 let products  = JSON.parse(localStorage.getItem("panierItem")) || [];
+
 @Injectable({
   providedIn: 'root'
 })

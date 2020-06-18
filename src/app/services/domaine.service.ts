@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Domaine} from "../models/domaine";
-
+const api_url ="https://shopix-backend.herokuapp.com";
 @Injectable({
   providedIn: 'root'
 })

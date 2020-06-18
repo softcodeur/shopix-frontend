@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../models/user";
 import {Adresse} from "../models/adresse";
-
+const api_url ="https://shopix-backend.herokuapp.com";
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,7 @@ export class AdresseService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })};
-    return this.http.post(`http://localhost:7600/shopix-api/adresse/email/${user.email}/password/${user.password}`,adresse,httpOptions);
+    return this.http.post(`${api_url}/shopix-api/adresse/email/${user.email}/password/${user.password}`,adresse,httpOptions);
 
 
 
