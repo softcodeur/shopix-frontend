@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-3">
+      <h1 class="my-4 ">Categorie</h1>
+      <div class="list-group">
+        <a class="list-group-item border shadow-lg mb-2" id="cat1" (click)="findAll()">Tous les catégories</a>
+      </div>
+
+      <div class="list-group " *ngFor="let categorie of categories">
+        <a class="list-group-item mb-2 " id="cat" (click)="findByCategorie(categorie)">{{categorie.nom}}</a>
+      </div>
+      <div>Filtrer</div>
+      <input type="range" id="vol" name="vol" min="0" max="10000" (change)="filtrer()" [(ngModel)]="filtreValue">
+      <div>{{filtreValue}} Dhs</div>
+    </div>
+
+    <div class="col-lg-9">
+      <div class="mt-5 pt-5 container d-flex justify-content-center" *ngIf="spinner">
+        <app-spinner></app-spinner>
+      </div>
+      <div class="lessons-list" *ngIf="produits  && produits.length > 0 ; else loading">
+        <div class="row mt-5 mx-auto">
+          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let prod of produits">
+            <div class="card h-100 transform">
+              <a href="#"><img class="card-img-top" [src]="prod.image" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">{{prod.image}}</a>
+                </h4>
+                <p class="card-text">{{prod.libelle}}</p>
+                <p class="card-text">{{prod.description}}</p>
+
+
+              </div>
+              <div class="d-flex justify-content-between mx-3">
+                <h4>{{prod.prix}}&nbsp;Dhs</h4>
+                <div class="hexa">
+                <a (click)="addToPanier(prod)">
+                  <mat-icon class="icon">shopping_cart</mat-icon>
+                </a>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+      <ng-template #loading>
+        <div class="display-1 text-info mt-3">No found products</div>
+      </ng-template>
+
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+
+</div>

@@ -1,0 +1,83 @@
+
+<div class="container">
+  <h3 class="mt-4 pt-4">Les plus demandés</h3>
+  <div class="d-flex justify-content-center mt-4" *ngIf="spinner">
+  <app-spinner></app-spinner>
+  </div>
+    <div class=" product-item swiper-container" *ngIf="produits" [swiper]="config" >
+  <div class="swiper-wrapper h-100">
+    <div *ngFor="let product of produits._embedded.produits" class="swiper-slide">
+      <mat-card fxLayout="column" class="mat-card-product">
+        <div class="product-img">
+          <a class="product-link" [routerLink]="">
+            <img [src]="product.image" alt="" height="200px" width="200px">
+          </a>
+        </div>
+        <div class="product-info-wrapper">
+          <span class="category">{{product.marque}}</span>
+          <div class="title-wrap">
+            <h4>{{product.libelle}}</h4>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p> {{product.prix }} DHS</p>
+            <div class="hexa">
+            <a (click)="addToPanier(product)"><mat-icon class="icon">shopping_cart</mat-icon></a>
+            </div>
+            </div>
+        </div>
+      </mat-card>
+    </div>
+
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+
+</div>
+
+
+
+
+<!--
+<div class="product-item swiper-container"  *ngIf="produits" [swiper]="config" >
+  <div class="swiper-wrapper h-100" >
+
+    <div *ngFor="let produit of produits.produits" class="swiper-slide">
+      <mat-card   fxLayout="column">
+        <div class="product-img">
+          <a class="product-link">
+            <img src="assets/images/bengo.jpg" alt="">
+          </a>
+        </div>
+        <div class="product-info-wrapper">
+          <span class="category">{{produit.ref}}</span>
+          <div class="title-wrap">
+            <h4>{{produit.libelle}}</h4>
+          </div>
+          <div class="stars">
+            <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+            <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+            <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+            <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+            <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+          </div>
+          <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+            <p>40 dhs</p>
+            <a ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
+          </div>
+          <div class="icons" fxLayout="column">
+            <a ><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
+            <a><mat-icon>remove_red_eye</mat-icon></a>
+            <a><mat-icon>cached</mat-icon></a>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+  </div>
+  <button mat-mini-fab class="swiper-button-prev swipe-arrow"></button>
+  <button mat-mini-fab class="swiper-button-next swipe-arrow"></button>
+</div>-->
+
