@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {User} from "../models/user";
 
-
+const api_url ="https://shopix-backend.herokuapp.com";
 @Injectable({
   providedIn: 'root'
 })
@@ -15,12 +15,12 @@ export class UserService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })};
-      return this.http.post("http://localhost:7600/shopix-api/users/",user,httpOptions);
+      return this.http.post(api_url+"/shopix-api/users/",user,httpOptions);
   }
   findByPasswordAndEmail(user:User){
-    return this.http.get(`http://localhost:7600/shopix-api/users/email/${user.email}`);
+    return this.http.get(`${api_url}/shopix-api/users/email/${user.email}`);
   }
   findByPasswordAndEmail1(user:User){
-    return this.http.get(`http://localhost:7600/shopix-api/users/findby/${user.email}/pass/${user.password}`);
+    return this.http.get(`${api_url}/shopix-api/users/findby/${user.email}/pass/${user.password}`);
   }
 }
