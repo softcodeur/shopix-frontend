@@ -20,7 +20,7 @@
       <div class="mt-5 pt-5 container d-flex justify-content-center" *ngIf="spinner">
         <app-spinner></app-spinner>
       </div>
-      <div class="lessons-list" *ngIf="produits  && produits.length > 0 && spinner == false ; else loading">
+      <div class="lessons-list" *ngIf="produits  && produits.length > 0">
         <div class="row mt-5 mx-auto">
           <div class="col-lg-4 col-md-6 mb-4" *ngFor="let prod of produits">
             <div class="card h-100 transform">
@@ -51,10 +51,6 @@
 
         </div>
       </div>
-
-      <ng-template #loading>
-        <div class="display-1 text-info mt-3">No found products</div>
-      </ng-template>
 
       <!-- /.row -->
 
