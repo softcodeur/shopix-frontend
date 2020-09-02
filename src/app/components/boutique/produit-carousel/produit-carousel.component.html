@@ -1,41 +1,40 @@
-
+<!-- carousel des produits (swiper) -->
 <div class="container">
   <h3 class="mt-4 pt-4">Les plus demandés</h3>
   <div class="d-flex justify-content-center mt-4" *ngIf="spinner">
-  <app-spinner></app-spinner>
+    <app-spinner></app-spinner>
   </div>
-    <div class=" product-item swiper-container" *ngIf="produits" [swiper]="config" >
-  <div class="swiper-wrapper h-100">
-    <div *ngFor="let product of produits._embedded.produits" class="swiper-slide">
-      <mat-card fxLayout="column" class="mat-card-product">
-        <div class="product-img">
-          <a class="product-link" [routerLink]="">
-            <img [src]="product.image" alt="" height="200px" width="200px">
-          </a>
-        </div>
-        <div class="product-info-wrapper">
-          <span class="category">{{product.marque}}</span>
-          <div class="title-wrap">
-            <h4>{{product.libelle}}</h4>
+  <div class=" product-item swiper-container" *ngIf="produits" [swiper]="config">
+    <div class="swiper-wrapper h-100">
+      <div *ngFor="let product of produits._embedded.produits" class="swiper-slide">
+        <mat-card fxLayout="column" class="mat-card-product">
+          <div class="product-img">
+            <a class="product-link" [routerLink]="">
+              <img [src]="product.image" alt="" height="200px" width="200px">
+            </a>
           </div>
-          <div class="d-flex justify-content-between">
-            <p> {{product.prix }} DHS</p>
-            <div class="hexa">
-            <a (click)="addToPanier(product)"><mat-icon class="icon">shopping_cart</mat-icon></a>
+          <div class="product-info-wrapper">
+            <span class="category">{{product.marque}}</span>
+            <div class="title-wrap">
+              <h4>{{product.libelle}}</h4>
             </div>
+            <div class="d-flex justify-content-between">
+              <p> {{product.prix }} DHS</p>
+              <div class="hexa">
+                <a (click)="addToPanier(product)">
+                  <mat-icon class="icon">shopping_cart</mat-icon>
+                </a>
+              </div>
             </div>
-        </div>
-      </mat-card>
+          </div>
+        </mat-card>
+      </div>
+
     </div>
 
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-
 
 </div>
-
-
-

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   sideNavOpened = true;
@@ -30,7 +30,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
       }
     });
   }
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngOnDestroy(): void {
     this.mediaWatcher.unsubscribe();
