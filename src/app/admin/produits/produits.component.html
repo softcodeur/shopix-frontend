@@ -2,7 +2,7 @@
   <div class="form-group form-inline  d-flex justify-content-between">
     <button class="btn btn-primary w-50" (click)="openDialogAdd()">Ajouter</button>
     <div>
-      <span class="font"> Cherchez votre Client : </span><input class="form-control ml-2" type="text"
+      <span class="font"> Cherchez votre Produit : </span><input class="form-control ml-2" type="text"
         [formControl]="filter" />
     </div>
   </div>
@@ -23,7 +23,7 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let prod of produits$ | async;">
+    <tr *ngFor="let prod of produits$ | async;">
       <td class="pt-5 font">
         <ngb-highlight [result]="prod.ref.toString() " [term]="filter.value"></ngb-highlight>
       </td>
