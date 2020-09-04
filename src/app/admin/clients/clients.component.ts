@@ -22,14 +22,10 @@ export class ClientsComponent implements OnInit {
   toggler(client: User) {
     if (client.active) {
       console.log(client.active);
-      this.userServive.changeStatus(client.id, false).subscribe((data) => {
-        console.log('the method is working');
-      });
+      this.userServive.changeStatus(client.id, false).subscribe((data) => {});
     } else {
       console.log(client.active);
-      this.userServive.changeStatus(client.id, true).subscribe((data) => {
-        console.log('the method is working');
-      });
+      this.userServive.changeStatus(client.id, true).subscribe((data) => {});
     }
   }
 }

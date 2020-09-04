@@ -27,7 +27,7 @@ export class UserService {
     );
   }
   getAllUsers() {
-    return this.http.get(`${local_api_url}/shopix-api/users/`);
+    return this.http.get(`${api_url}/shopix-api/users/`);
   }
   changeStatus(id: number, status: boolean) {
     console.log('this the changeStatus Service' + id + '  ' + status);
