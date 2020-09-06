@@ -17,6 +17,7 @@
     </tr>
   </thead>
   <tbody>
+
     <tr *ngFor="let client of clients">
       <td class="pt-3 font font-weight-bolder">{{client.prenom}}</td>
       <td class="pt-3 font font-weight-bolder">{{client.nom}}</td>
@@ -25,7 +26,6 @@
 
       <td>
         <div *ngIf="client.active == true ;else unchecked">
-
           <label class="switch">
             <input type="checkbox" (click)="toggler(client)" checked>
             <span class="slider round"></span>
@@ -39,6 +39,7 @@
         </ng-template>
       </td>
     </tr>
+
     <!--  <td class="pt-5 font">
         <ngb-highlight [result]="prod.marque" [term]="filter.value"></ngb-highlight>
       </td>
